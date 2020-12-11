@@ -9,11 +9,19 @@ public class ArrowScript : MonoBehaviour
   {
      if (Input.GetKeyDown(attackbutton))
      {
+<<<<<<< Updated upstream
          if (col.GetComponent<EnemyStats>())
          {              
              EnemyStats stats = col.GetComponent<EnemyStats>();
              stats.Hit(damage);
          }
+=======
+         if (col.GetComponent<EnemyStats>()
+         {
+             EnemyStats stats = col.GetComponent<EnemyStats>();
+             stats.Hit(damage);
+         })
+>>>>>>> Stashed changes
      }
   }
 
