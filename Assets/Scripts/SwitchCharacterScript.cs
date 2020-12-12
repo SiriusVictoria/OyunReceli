@@ -5,9 +5,11 @@ using UnityEngine;
 public class SwitchCharacterScript : MonoBehaviour
 {
     public GameObject avatar1, avatar2;
+
     // Start is called before the first frame update
     void Start()
     {
+
         avatar1.gameObject.SetActive(true);
         avatar2.gameObject.SetActive(false);
     }
@@ -17,19 +19,23 @@ public class SwitchCharacterScript : MonoBehaviour
     {
         if (Input.GetKey("1"))
         {
-            
+            avatar1.transform.position = avatar2.transform.position;
+            avatar1.transform.rotation = avatar2.transform.rotation;
             avatar1.gameObject.SetActive(true);
             avatar2.gameObject.SetActive(false);
-           
+            
+
 
         }
 
         if (Input.GetKey("2"))
         {
-            
+            avatar2.transform.position = avatar1.transform.position;
+            avatar2.transform.rotation = avatar1.transform.rotation;
             avatar1.gameObject.SetActive(false);
             avatar2.gameObject.SetActive(true);
-            avatar1.transform.position = this.transform.position;
+            
+
         }
     }
 }
