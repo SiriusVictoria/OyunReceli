@@ -32,26 +32,26 @@ public class ThirdPersonMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
-            if(controller.isGrounded)
-            {
-                verticalVelocity=-gravity*Time.deltaTime;
-                if(Input.GetKeyDown(KeyCode.Space))
-                {
-                    verticalVelocity=jumpForce;
-                }
-            }
-            else
-            {
-                verticalVelocity-=gravity*Time.deltaTime;
-            }
-            Vector3 moveVector=Vector3.zero;
-            moveVector.x=Input.GetAxis("Horizontal")*5.0f;
-            moveVector.y=verticalVelocity;
-            moveVector.z=Input.GetAxis("Vertical")*5.0f;
-            controller.Move(moveVector*Time.deltaTime);
-
-
+            
 
         }
+
+        if (controller.isGrounded)
+        {
+            verticalVelocity = -gravity * Time.deltaTime;
+            if (Input.GetKey("space"))
+            {
+                verticalVelocity = jumpForce;
+            }
+        }
+        else
+        {
+            verticalVelocity -= gravity * Time.deltaTime;
+        }
+        Vector3 moveVector = Vector3.zero;
+        moveVector.x = Input.GetAxis("Horizontal") * 5.0f;
+        moveVector.y = verticalVelocity;
+        moveVector.z = Input.GetAxis("Vertical") * 5.0f;
+        controller.Move(moveVector * Time.deltaTime);
     }
 }
