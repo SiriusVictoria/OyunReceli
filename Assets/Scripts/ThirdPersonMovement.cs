@@ -12,6 +12,10 @@ public class ThirdPersonMovement : MonoBehaviour
     public float speed = 6f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
+<<<<<<< HEAD
+=======
+   
+>>>>>>> main
     private void Start()
     {
         controller= GetComponent<CharacterController>();
@@ -25,6 +29,10 @@ public class ThirdPersonMovement : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+<<<<<<< HEAD
+=======
+       
+>>>>>>> main
         if (direction.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
@@ -32,6 +40,7 @@ public class ThirdPersonMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
+<<<<<<< HEAD
             if(controller.isGrounded)
             {
                 verticalVelocity=-gravity*Time.deltaTime;
@@ -53,5 +62,28 @@ public class ThirdPersonMovement : MonoBehaviour
 
 
         }
+=======
+            
+
+        }
+
+        if (controller.isGrounded)
+        {
+            verticalVelocity = -gravity * Time.deltaTime;
+            if (Input.GetKey("space"))
+            {
+                verticalVelocity = jumpForce;
+            }
+        }
+        else
+        {
+            verticalVelocity -= gravity * Time.deltaTime;
+        }
+        Vector3 moveVector = Vector3.zero;
+        moveVector.x = Input.GetAxis("Horizontal") * 5.0f;
+        moveVector.y = verticalVelocity;
+        moveVector.z = Input.GetAxis("Vertical") * 5.0f;
+        controller.Move(moveVector * Time.deltaTime);
+>>>>>>> main
     }
 }
