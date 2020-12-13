@@ -13,6 +13,9 @@ public class MeleeCharMovement : MonoBehaviour
     public float turnSmoothTime2 = 0.1f;
     float turnSmoothVelocity2;
 
+    //sesler
+    
+
     //eklentiler
     public Animator animator;
     private float glidingMultiplier = 10f;
@@ -50,6 +53,7 @@ public class MeleeCharMovement : MonoBehaviour
             verticalVelocity2 = -gravity2 * Time.deltaTime;
             if (Input.GetKey("space"))
             {
+                
                 verticalVelocity2 = jumpForce2;
                 isGliding = false;
             }
@@ -111,6 +115,7 @@ public class MeleeCharMovement : MonoBehaviour
             animator.SetBool("Jump", false);
             animator.SetBool("Fly", false);
             animator.SetBool("Attack", true);
+           
 
         }
         else if (new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxis("Vertical")).magnitude >= 0.1f && controller.isGrounded)
