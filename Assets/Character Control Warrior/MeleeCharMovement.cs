@@ -16,7 +16,7 @@ public class MeleeCharMovement : MonoBehaviour
     //eklentiler
     public Animator animator;
     private float glidingMultiplier = 10f;
-    private bool isGliding, isAttacking;
+    public bool isGliding, isAttacking;
     private float ungroundingTimer;
 
     private void Start()

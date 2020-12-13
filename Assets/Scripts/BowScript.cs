@@ -21,7 +21,7 @@ public class BowScript : MonoBehaviour
 
       if(Input.GetKeyUp(fireButton))
       {
-          Rigidbody arrow = Instantiate(arrowObject, spawn.position, Quaternion.identity) as Rigidbody; //new rigidbody for arrowObject
+          Rigidbody arrow = Instantiate(arrowObject, spawn.position + spawn.forward, Quaternion.identity) as Rigidbody; //new rigidbody for arrowObject
           arrow.AddForce(spawn.forward * _charge, ForceMode.Impulse);
           _charge = 0; 
       }
